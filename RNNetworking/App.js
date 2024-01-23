@@ -13,7 +13,7 @@ export default function App() {
 
   const [postList, setPostList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [refreshing, setRefreshing] = useState(false);
 
   const fetchData = async (limit = 10) => {
     try {
@@ -27,6 +27,12 @@ export default function App() {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+  };
+
+  const handleRefresh = () => {
+    setRefreshing(true);
+    fetchData(20);
+    setRefreshing(false);
   };
 
   useEffect(() => {
@@ -64,6 +70,8 @@ export default function App() {
           ListFooterComponent={
             <Text style={styles.footerText}>End of list</Text>
           }
+          refreshing={refreshing}
+          onRefresh={handleRefresh}
         />
 
       </View>
