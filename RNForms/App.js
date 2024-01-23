@@ -15,6 +15,15 @@ export default function App() {
      setErrors(errors);
 
      return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = () => {
+    if(validateForm()) {
+      console.log("Submitted", username ,password);
+      setUsername("");
+      setPassword("");
+      setErrors({});
+    }
   }
 
   return (
@@ -27,7 +36,7 @@ export default function App() {
         <Text style={styles.label}>Username</Text>
         <TextInput 
           style={styles.input} 
-          placeholder="Enter your usernmae" 
+          placeholder="Enter your username" 
           value={username}
           onChangeText={setUsername} 
           />
@@ -38,10 +47,10 @@ export default function App() {
           placeholder="Enter your password" 
           secureTextEntry
           value={password}
-          onChange={setPassword}
+          onChangeText={setPassword}
           />
           {errors.password ? <Text style={styles.errorText}>{errors.password}</Text> : null}
-        <Button title="login"/>
+        <Button title="login" onPress={handleSubmit}/>
       </View>
     </KeyboardAvoidingView>
     
