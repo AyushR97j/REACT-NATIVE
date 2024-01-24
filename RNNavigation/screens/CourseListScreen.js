@@ -1,14 +1,14 @@
 import { View, Text, StyleSheet } from "react-native";
 
-const SettingsScreen = ({ navigation }) => {
+const CourseListScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>SettingsScreen</Text>
-    </View>
+      <Text style={styles.text}>CourseListScreen</Text>
+      </View>
   );
 };
 
-export default SettingsScreen;
+export default CourseListScreen;
 
 const styles = StyleSheet.create({
   container: {
