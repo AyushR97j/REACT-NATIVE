@@ -1,8 +1,6 @@
 import { View, Text, StyleSheet, Button } from "react-native";
-import { useNavigation } from "@react-navigation/native";
 
-export default function HomeScreen() {
-  const navigation = useNavigation();
+export default function HomeScreen( { navigation } ) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Home Screen</Text>
