@@ -1,7 +1,14 @@
+import { useLayoutEffect } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 
 export default function AboutScreen( {navigation, route} ) {
   const { name } = route.params;
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      title: name,
+    });
+  })
 
   return (
     <View style={styles.container}>
